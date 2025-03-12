@@ -14,9 +14,14 @@ vim.opt.smartindent = true
 
 -- no wrap
 vim.opt.wrap = false
+vim.opt.termguicolors = true
 
 -- undotree adjustments
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv('HOME') .. "/.vim/undodir"
+
+-- leave 8 lines of space
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = 'yes'
 
