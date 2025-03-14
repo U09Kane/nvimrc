@@ -16,6 +16,10 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.termguicolors = true
 
+-- search behavior
+vim.opt.incsearch = true
+vim.opt.hlsearch = false
+
 -- undotree adjustments
 vim.opt.swapfile = false
 vim.opt.backup = false
