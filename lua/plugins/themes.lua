@@ -8,5 +8,6 @@ return {
             require("colorbuddy").colorscheme("cobalt2")
         end,
     },   
+    {"EdenEast/nightfox.nvim"},
 }
 
