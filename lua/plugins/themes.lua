@@ -1,4 +1,4 @@
-return { 
+return {
     {"rose-pine/neovim", name = "rose-pine"},
     {
         "lalitmee/cobalt2.nvim",
@@ -7,7 +7,18 @@ return {
         init = function()
             require("colorbuddy").colorscheme("cobalt2")
         end,
-    },   
+    },
     {"EdenEast/nightfox.nvim"},
+    {"GlennLeo/cobalt2"},
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
+    {
+        "sainnhe/everforest",
+        config = function ()
+            vim.g.everforest_background = 'medium'
+        end
+    },
 }
 

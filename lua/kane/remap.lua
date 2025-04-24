@@ -19,7 +19,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 -- <leader>y to copy to system clipboard
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set("n", "<leader>Y", [["leader+Y]])
 
 -- Quick-fix menu navigation
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -36,3 +36,8 @@ end)
 vim.keymap.set("n", "<leader>tt", function()
   vim.cmd("%s/\\s\\+$//e")
 end, { noremap = true, silent = true })
+
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
