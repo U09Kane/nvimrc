@@ -34,6 +34,11 @@ end)
 -- Enable break indent
 vim.opt.breakindent = true
 
+-- Set Default Indention
+vim.opt.smartindent = false -- should be false when treesitter is active?
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+
 -- Save undo history
 vim.opt.undofile = true
 
@@ -723,8 +728,11 @@ require("lazy").setup({
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require("tokyonight").setup({
+        transparent = true,
         styles = {
           comments = { italic = false }, -- Disable italics in comments
+          sidebars = "transparent",
+          floats = "transparent",
         },
       })
 
@@ -760,20 +768,6 @@ require("lazy").setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require("mini.surround").setup()
-
-      -- Simple and easy statusline.
-      --  You could remove this setup call if you don't like it,
-      --  and try some other statusline plugin
-      local statusline = require("mini.statusline")
-      -- -- set use_icons to true if you have a Nerd Font
-      statusline.setup({ use_icons = vim.g.have_nerd_font })
-      -- You can configure sections in the statusline by overriding their
-      -- default behavior. For example, here we set the section for
-      -- cursor location to LINE:COLUMN
-      ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_location = function()
-        return "%2l:%-2v"
-      end
     end,
   },
   { -- Highlight, edit, and navigate code
@@ -795,6 +789,7 @@ require("lazy").setup({
         "vim",
         "vimdoc",
         "python",
+        "go",
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
@@ -828,8 +823,8 @@ require("lazy").setup({
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   require("kickstart.plugins.autopairs"),
-  -- require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require("kickstart.plugins.neo-tree"),
+  require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
